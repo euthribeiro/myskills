@@ -50,9 +50,10 @@ function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Welcome, Thiago</Text>
+      <Text style={styles.title} testID="welcome">Welcome, Thiago</Text>
       <Text style={styles.greetings}>{greeting}</Text>
       <TextInput 
+        testID="input-new"
         value={newSkill} 
         onChangeText={setNewSkill}
         style={styles.input}
@@ -60,6 +61,7 @@ function Home() {
         placeholderTextColor="#555"
       />
       <Button
+        testID="button-add"
         title="Add"
        onPress={handleAddNewSkill}
       />
@@ -69,6 +71,8 @@ function Home() {
         My skills
       </Text>
       <FlatList 
+        testID="flat-list-skiils"
+        keyboardShouldPersistTaps="never"
         data={mySkills}
         keyExtractor={item => item.id}
         renderItem={({item}) => 
